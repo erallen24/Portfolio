@@ -69,7 +69,7 @@ export function ProfileHeader() {
             transition={{ delay: 0.2 }}
             className="mb-2 truncate"
           >
-            Alex Developer
+            Evan Allen
           </motion.h1>
 
           <div className="h-8 mb-4">

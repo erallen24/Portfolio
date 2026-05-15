@@ -33,7 +33,7 @@ export function QuickContact() {
             <Mail className="w-5 h-5" />
             <div className="flex-1 min-w-0">
               <p className="text-sm opacity-80">Email</p>
-              <p className="text-sm font-medium truncate">alex@dev.com</p>
+              <p className="text-sm font-medium truncate">contact@evanallen.dev</p>
             </div>
           </motion.a>
 
@@ -45,7 +45,7 @@ export function QuickContact() {
             <MessageSquare className="w-5 h-5" />
             <div className="flex-1">
               <p className="text-sm opacity-80">Discord</p>
-              <p className="text-sm font-medium">@alexdev#1234</p>
+              <p className="text-sm font-medium">@evanallen_70873</p>
             </div>
           </motion.a>
 
