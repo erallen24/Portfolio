@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Fluidity Character Framework">
+  <div class="mb-6">
+    <a href="/" class="text-cyan-400 hover:text-cyan-300 text-sm"><- Return to Mission Control</a>
+  </div>
+  
+  <header class="mb-8 border-b border-slate-800 pb-4">
+    <h1 class="text-3xl md:text-4xl font-bold text-slate-100 uppercase">Fluidity Character Framework</h1>
+    <p class="text-emerald-400 mt-2 text-sm">// Unreal Engine 5 | C++ | Mover Plugin</p>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+    <div class="col-span-1 md:col-span-2 space-y-8">
+      <section>
+        <h2 class="text-xl text-slate-100 mb-3 border-b border-slate-800 pb-1">// The Problem</h2>
+        <p class="text-sm leading-relaxed text-slate-400">
+          Standard character controllers often lack the modularity required for complex, state-driven gameplay. The goal was to engineer a robust locomotion system that separates input handling from state logic, preventing monolithic, unmaintainable C++ classes.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl text-slate-100 mb-3 border-b border-slate-800 pb-1">// The Architecture</h2>
+        <p class="text-sm leading-relaxed text-slate-400 mb-4">
+          Built natively in C++ by extending the experimental Mover plugin. The architecture utilizes a finite state machine (FSM) tailored for high-performance animation blending and precise collision predictions.
+        </p>
+        
+        <div class="bg-slate-950 border border-slate-800 rounded p-4 overflow-x-auto">
+          <pre class="text-xs text-slate-300"><code><span class="text-slate-500">// FFluidityCharacterState.h</span>
+UCLASS()
+class UFluidityMovementComponent : public UMoverComponent
+{
+    GENERATED_BODY()
+
+protected:
+    virtual void OnRegister() override;
+    void HandleStateTransition(EFluidityState NewState);
+    
+    UPROPERTY(EditAnywhere, Category = "Locomotion Metrics")
+    float MaxPredictedSpeed;
+};</code></pre>
+        </div>
+      </section>
+    </div>
+    
+    <div class="space-y-6">
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded">
+        <h3 class="text-cyan-400 text-sm font-bold uppercase mb-2">Technical Bottleneck</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Initial implementations resulted in state desynchronization during rapid input buffering. Resolved by decoupling the animation update tick from the physics step, ensuring frame-independent input polling.
+        </p>
+      </div>
+
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded">
+        <h3 class="text-slate-100 text-sm font-bold uppercase mb-2">Key Features</h3>
+        <ul class="text-xs text-slate-400 space-y-2 list-disc pl-4">
+          <li>Custom C++ Header structures.</li>
+          <li>Frame-independent input polling.</li>
+          <li>Modular component design.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</Layout>
