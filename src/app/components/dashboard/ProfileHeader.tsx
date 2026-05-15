@@ -100,7 +100,7 @@ export function ProfileHeader() {
               transition={{ delay: 0.4 }}
               className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm whitespace-nowrap"
             >
-              8+ Years Experience
+              5+ Years Experience
             </motion.span>
           </div>
 
@@ -108,7 +108,7 @@ export function ProfileHeader() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="https://github.com"
+              href="https://github.com/erallen24"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 bg-muted rounded-lg hover:bg-accent transition-colors"
@@ -118,7 +118,7 @@ export function ProfileHeader() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/evan-allen-game-dev/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 bg-muted rounded-lg hover:bg-accent transition-colors"
@@ -128,7 +128,7 @@ export function ProfileHeader() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="mailto:contact@example.com"
+              href="contact@evanallen.dev"
               className="p-2 bg-muted rounded-lg hover:bg-accent transition-colors"
             >
               <Mail className="w-5 h-5" />

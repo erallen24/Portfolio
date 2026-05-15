@@ -5,27 +5,27 @@ import { ImageWithFallback } from "../figma/ImageWithFallback";
 
 const projects = [
   {
-    title: "Quantum Odyssey VR",
+    title: "Add-Venture",
     type: "Game Development",
-    description: "Award-winning VR experience with 500K+ players",
+    description: "2.5D Remake of the 1981 arcade classic Venture.",
     image: "https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
-    tech: ["Unreal Engine", "C++", "VR"],
+    tech: ["Vulkan", "Gateware", "ENTT", "C++"],
     metrics: { users: "500K+", rating: "4.8/5" }
   },
   {
-    title: "CloudScale Platform",
+    title: "The Bridge",
     type: "Software Engineering",
-    description: "Microservices platform serving 2M+ requests/day",
+    description: "Integrated life managment console.",
     image: "https://images.unsplash.com/photo-1730130054404-c2bd8e7038c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
-    tech: ["React", "Node.js", "AWS"],
+    tech: ["Python", "Plaid API", "Google Cloud Console"],
     metrics: { scale: "2M/day", uptime: "99.9%" }
   },
   {
-    title: "NeonRace Multiplayer",
+    title: "Project C.A.D.E.",
     type: "Game Development",
-    description: "Real-time racing with 32 concurrent players",
+    description: "First person shooter game created in Unity",
     image: "https://images.unsplash.com/photo-1669023414162-8b0573b9c6b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
-    tech: ["Unity", "Netcode", "C#"],
+    tech: ["Unity", "C#"],
     metrics: { players: "32P", latency: "<50ms" }
   },
 ];
