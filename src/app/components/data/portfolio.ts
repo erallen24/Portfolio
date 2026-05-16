@@ -1,5 +1,6 @@
 
 import profilePic from "@/assets/Evan_pic.png";
+import addVentureLogo from "@/assets/Add-VentureLogo.png";
 
 export const profileData = {
   name: "Evan Allen",
@@ -33,7 +34,7 @@ export const projectsData = [
     slug: "add-venture",
     type: "Game Development",
     description: "A 2.5D action-exploration remake of the 1981 classic Venture featuring custom collision systems.",
-    image: "https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
+    image: addVentureLogo,
     tech: ["C++", "Custom Collision", "2.5D"],
     metrics: { status: "Released", type: "Remake" }
   },
