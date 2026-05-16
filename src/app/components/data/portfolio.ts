@@ -27,7 +27,7 @@ export const techStackData = [
   { name: "Languages", techs: ["C++", "C#", "Python", "Swift", "JavaScript"], color: "from-blue-500/20 to-blue-500/5" },
   { name: "Frontend & UI", techs: ["React", "Flet", "Tailwind", "SASS"], color: "from-green-500/20 to-green-500/5" },
   { name: "Backend", techs: ["Node.js", "SQL", "REST APIs"], color: "from-orange-500/20 to-orange-500/5" },
-  { name: "Architecture", techs: ["Systems Programming", "Mover Plugin", "Custom Physics"], color: "from-pink-500/20 to-pink-500/5" },
+  { name: "Architecture", techs: ["Systems Programming", "Custom Physics"], color: "from-pink-500/20 to-pink-500/5" },
 ];
 
 export const projectsData = [
