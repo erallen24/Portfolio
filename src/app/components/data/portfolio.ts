@@ -1,5 +1,5 @@
 
-import profilePic from "../assets/Evan_pic.png";
+import profilePic from "@/assets/Evan_pic.png";
 
 export const profileData = {
   name: "Evan Allen",
