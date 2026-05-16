@@ -38,7 +38,7 @@ export const projectsData = [
     description: "A 2.5D action-exploration remake of the 1981 classic Venture featuring custom collision systems.",
     image: addVentureLogo,
     tech: ["C++", "Custom Collision", "2.5D"],
-    metrics: { status: "Released", type: "Remake" }
+    metrics: { status: "Released", genre: "Arcadre/Adventure" }
   },
   {
     title: "Project C.A.D.E.",
@@ -56,6 +56,6 @@ export const projectsData = [
     description: "Cross-platform life management application featuring secure API authentication for financial and schedule tracking.",
     image: theBridgeLogo,
     tech: ["Python", "Flet", "Plaid API", "Google API"],
-    metrics: { platforms: "Cross-Platform", ui: "Condensed" }
+    metrics: { status: "In production", genre: "Productivity App" }
   },
 ];
