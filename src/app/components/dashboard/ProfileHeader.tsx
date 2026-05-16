@@ -1,17 +1,17 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Github, Linkedin, Mail, Download, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
+import { profileData } from "../data/portfolio"; // <-- Data Import
 
 export function ProfileHeader() {
   const [currentRole, setCurrentRole] = useState(0);
-  const roles = ["Game Developer", "Software Engineer", "System Architect", "Tech Innovator"];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length);
+      setCurrentRole((prev) => (prev + 1) % profileData.roles.length);
     }, 2000);
     return () => clearInterval(interval);
   }, []);
@@ -58,40 +58,42 @@ export function ProfileHeader() {
           {/* Info */}
           <div className="flex-1 text-center md:text-left min-w-0 md:pr-4">
             <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="mb-2 truncate text-3xl font-bold">
-              Evan Allen
+              {profileData.name}
             </motion.h1>
 
             <div className="h-8 mb-4">
-              <motion.p
-                key={currentRole}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="text-muted-foreground truncate"
-              >
-                {roles[currentRole]}
-              </motion.p>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={currentRole}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="text-muted-foreground truncate"
+                >
+                  {profileData.roles[currentRole]}
+                </motion.p>
+              </AnimatePresence>
             </div>
 
             <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-4">
               <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 py-1 px-3">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse mr-2" />
-                Available for hire
+                {profileData.availability}
               </Badge>
               <Badge variant="secondary" className="py-1 px-3">
-                5+ Years Experience
+                {profileData.experience}
               </Badge>
             </div>
 
             <div className="flex flex-wrap gap-3 justify-center md:justify-start">
               <Button variant="outline" size="icon" asChild>
-                <a href="https://github.com/erallen24" target="_blank" rel="noopener noreferrer"><Github className="w-5 h-5" /></a>
+                <a href={profileData.socials.github} target="_blank" rel="noopener noreferrer"><Github className="w-5 h-5" /></a>
               </Button>
               <Button variant="outline" size="icon" asChild>
-                <a href="https://www.linkedin.com/in/evan-allen-game-dev/" target="_blank" rel="noopener noreferrer"><Linkedin className="w-5 h-5" /></a>
+                <a href={profileData.socials.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin className="w-5 h-5" /></a>
               </Button>
               <Button variant="outline" size="icon" asChild>
-                <a href="mailto:contact@evanallen.dev"><Mail className="w-5 h-5" /></a>
+                <a href={profileData.socials.email}><Mail className="w-5 h-5" /></a>
               </Button>
             </div>
           </div>
@@ -101,14 +103,11 @@ export function ProfileHeader() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex-1 md:max-w-md hidden lg:block text-sm text-muted-foreground leading-relaxed md:px-4 md:border-l border-border/50"
+            className="flex-1 md:max-w-md hidden lg:block text-sm text-muted-foreground leading-relaxed md:px-4 md:border-l border-border/50 space-y-2"
           >
-            <p className="mb-2">
-              I am a passionate Game & Software Developer specializing in bridging the gap between immersive 3D experiences and scalable web platforms.
-            </p>
-            <p>
-              With a strong foundation in C++, Unity/Unreal, and React, I thrive on building high-performance applications that deliver exceptional user experiences.
-            </p>
+            {profileData.about.map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+            ))}
           </motion.div>
 
           {/* CTA */}

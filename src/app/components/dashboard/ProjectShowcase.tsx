@@ -6,36 +6,7 @@ import { ImageWithFallback } from "../figma/ImageWithFallback";
 import { Card } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-
-const projects = [
-    {
-        title: "Quantum Odyssey VR",
-        slug: "quantum-odyssey",
-        type: "Game Development",
-        description: "Award-winning VR experience with 500K+ players",
-        image: "https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
-        tech: ["Unreal Engine", "C++", "VR"],
-        metrics: { users: "500K+", rating: "4.8/5" }
-    },
-    {
-        title: "CloudScale Platform",
-        slug: "cloudscale",
-        type: "Software Engineering",
-        description: "Microservices platform serving 2M+ requests/day",
-        image: "https://images.unsplash.com/photo-1730130054404-c2bd8e7038c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
-        tech: ["React", "Node.js", "AWS"],
-        metrics: { scale: "2M/day", uptime: "99.9%" }
-    },
-    {
-        title: "NeonRace Multiplayer",
-        slug: "neonrace",
-        type: "Game Development",
-        description: "Real-time racing with 32 concurrent players",
-        image: "https://images.unsplash.com/photo-1669023414162-8b0573b9c6b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
-        tech: ["Unity", "Netcode", "C#"],
-        metrics: { players: "32P", latency: "<50ms" }
-    },
-];
+import { projectsData } from "../data/portfolio"; // <-- Data Import
 
 export function ProjectShowcase() {
     const [current, setCurrent] = useState(0);
@@ -45,22 +16,22 @@ export function ProjectShowcase() {
     useEffect(() => {
         const timer = setInterval(() => {
             setDirection(1);
-            setCurrent((prev) => (prev + 1) % projects.length);
+            setCurrent((prev) => (prev + 1) % projectsData.length);
         }, 5000);
         return () => clearInterval(timer);
     }, []);
 
     const next = () => {
         setDirection(1);
-        setCurrent((prev) => (prev + 1) % projects.length);
+        setCurrent((prev) => (prev + 1) % projectsData.length);
     };
 
     const prev = () => {
         setDirection(-1);
-        setCurrent((prev) => (prev - 1 + projects.length) % projects.length);
+        setCurrent((prev) => (prev - 1 + projectsData.length) % projectsData.length);
     };
 
-    const project = projects[current];
+    const project = projectsData[current];
 
     return (
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}>
@@ -84,7 +55,7 @@ export function ProjectShowcase() {
                     {/* Project Info Overlay */}
                     <div className="absolute inset-0 p-6 flex flex-col justify-end pointer-events-none">
                         <motion.div key={`info-${current}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-                            <Badge className="bg-primary/90 text-primary-foreground mb-3 backdrop-blur-sm pointer-events-auto">
+                            <Badge className="bg-primary/90 text-primary-foreground mb-3 backdrop-blur-sm pointer-events-auto border-none">
                                 {project.type}
                             </Badge>
                             <h2 className="text-white text-2xl font-bold mb-2">{project.title}</h2>
@@ -102,7 +73,7 @@ export function ProjectShowcase() {
                                 {Object.entries(project.metrics).map(([key, value]) => (
                                     <div key={key} className="flex items-center gap-2">
                                         <span className="text-sm opacity-80 capitalize">{key}:</span>
-                                        <span className="font-bold">{value}</span>
+                                        <span className="font-bold">{value as React.ReactNode}</span>
                                     </div>
                                 ))}
                             </div>
@@ -130,7 +101,7 @@ export function ProjectShowcase() {
 
                 {/* Dots */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                    {projects.map((_, index) => (
+                    {projectsData.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => { setDirection(index > current ? 1 : -1); setCurrent(index); }}

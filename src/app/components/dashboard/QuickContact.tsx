@@ -3,6 +3,7 @@ import { Mail, MessageSquare, Calendar, Send } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
+import { profileData } from "../data/portfolio"; // <-- Data Import
 
 export function QuickContact() {
   return (
@@ -22,11 +23,13 @@ export function QuickContact() {
         
         <CardContent className="relative z-10 flex flex-col gap-4">
           <div className="space-y-3">
-            <a href="mailto:contact@evanallen.dev" className="flex items-center gap-3 p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors backdrop-blur-sm">
+            <a href={profileData.socials.email} className="flex items-center gap-3 p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors backdrop-blur-sm">
               <Mail className="w-5 h-5" />
               <div className="flex-1 min-w-0">
                 <p className="text-sm opacity-80">Email</p>
-                <p className="text-sm font-medium truncate">contact@evanallen.dev</p>
+                <p className="text-sm font-medium truncate">
+                  {profileData.socials.email.replace('mailto:', '')}
+                </p>
               </div>
             </a>
 
@@ -34,7 +37,7 @@ export function QuickContact() {
               <MessageSquare className="w-5 h-5" />
               <div className="flex-1">
                 <p className="text-sm opacity-80">Discord</p>
-                <p className="text-sm font-medium">@evanallen_70873</p>
+                <p className="text-sm font-medium truncate">{profileData.socials.discord}</p>
               </div>
             </a>
 
