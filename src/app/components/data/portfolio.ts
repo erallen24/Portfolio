@@ -2,6 +2,7 @@
 
 export const profileData = {
   name: "Evan Allen",
+  image: "..assets/Evan_pic.png",
   roles: ["Game Developer", "Software Engineer", "System Architect", "Tech Innovator"],
   experience: "5+ Years Experience",
   availability: "Available for hire",
@@ -18,10 +19,10 @@ export const profileData = {
 };
 
 export const techStackData = [
-  { name: "Game Engines", techs: ["Unity", "Unreal Engine 5", "Godot"], color: "from-purple-500/20 to-purple-500/5" },
-  { name: "Languages", techs: ["C++", "C#", "Python", "TypeScript"], color: "from-blue-500/20 to-blue-500/5" },
-  { name: "Frontend & UI", techs: ["React", "Flet", "Tailwind"], color: "from-green-500/20 to-green-500/5" },
-  { name: "Backend", techs: ["Node.js", "PostgreSQL", "REST APIs"], color: "from-orange-500/20 to-orange-500/5" },
+  { name: "Game Engines", techs: ["Unity", "Unreal Engine 5", "Custom Engine Creation"], color: "from-purple-500/20 to-purple-500/5" },
+  { name: "Languages", techs: ["C++", "C#", "Python", "Swift", "JavaScript"], color: "from-blue-500/20 to-blue-500/5" },
+  { name: "Frontend & UI", techs: ["React", "Flet", "Tailwind", "SASS"], color: "from-green-500/20 to-green-500/5" },
+  { name: "Backend", techs: ["Node.js", "SQL", "REST APIs"], color: "from-orange-500/20 to-orange-500/5" },
   { name: "Architecture", techs: ["Systems Programming", "Mover Plugin", "Custom Physics"], color: "from-pink-500/20 to-pink-500/5" },
 ];
 

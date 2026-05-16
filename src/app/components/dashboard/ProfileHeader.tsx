@@ -1,10 +1,10 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Github, Linkedin, Mail, Download, Sparkles } from "lucide-react";
+import { Github, Linkedin, Mail, Download } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import { profileData } from "../data/portfolio"; // <-- Data Import
+import { profileData } from "../data/portfolio";
 
 export function ProfileHeader() {
   const [currentRole, setCurrentRole] = useState(0);
@@ -33,20 +33,20 @@ export function ProfileHeader() {
         </div>
 
         <CardContent className="p-6 md:p-8 relative flex flex-col md:flex-row items-center md:items-start gap-6 w-full">
-          {/* Avatar Area */}
+          
+          {/* Avatar Area - NOW WIRED TO PORTFOLIO.TS */}
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", duration: 0.8 }}
             className="relative shrink-0"
           >
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-primary to-primary/50 flex items-center justify-center relative overflow-hidden">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-muted overflow-hidden relative border border-border/50">
+              <img 
+                src={profileData.image} 
+                alt={profileData.name} 
+                className="w-full h-full object-cover"
               />
-              <Sparkles className="w-12 h-12 md:w-16 md:h-16 text-primary-foreground relative z-10" />
             </div>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
