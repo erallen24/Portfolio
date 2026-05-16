@@ -34,7 +34,7 @@ export const projectsData = [
   {
     title: "Add-Venture",
     slug: "add-venture",
-    type: "Game Development",
+    type: "Engine Architecture",
     description: "A 2.5D action-exploration remake of the 1981 classic Venture featuring custom collision systems.",
     image: addVentureLogo,
     tech: ["C++", "Custom Collision", "2.5D"],
@@ -43,7 +43,7 @@ export const projectsData = [
   {
     title: "Project C.A.D.E.",
     slug: "project-cade",
-    type: "Engine Architecture",
+    type: "Game Development",
     description: "Single Player FPS game balancing stealth and combat gameplay.",
     image: projectCADELogo,
     tech: ["Unity", "C#", "Custom Character Controller"],
