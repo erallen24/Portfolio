@@ -1,6 +1,8 @@
 
 import profilePic from "@/assets/Evan_pic.png";
 import addVentureLogo from "@/assets/Add-VentureLogo.png";
+import projectCADELogo from "@/assets/ProjectCADELogo.png";
+import theBridgeLogo from "@/assets/TheBridge_Logo.png";
 
 export const profileData = {
   name: "Evan Allen",
@@ -39,20 +41,20 @@ export const projectsData = [
     metrics: { status: "Released", type: "Remake" }
   },
   {
-    title: "Fluidity Character Framework",
-    slug: "fluidity-framework",
+    title: "Project C.A.D.E.",
+    slug: "project-cade",
     type: "Engine Architecture",
-    description: "Advanced locomotion system and character state framework utilizing the Mover plugin.",
-    image: "https://images.unsplash.com/photo-1730130054404-c2bd8e7038c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
-    tech: ["Unreal Engine 5", "C++", "Mover Plugin"],
-    metrics: { states: "Dynamic", framework: "C++ Header" }
+    description: "Single Player FPS game balancing stealth and combat gameplay.",
+    image: projectCADELogo,
+    tech: ["Unity", "C#", "Custom Character Controller"],
+    metrics: { status: "Beta", genre: "Stealth/Action" }
   },
   {
     title: "The Bridge",
     slug: "the-bridge",
     type: "Software Engineering",
     description: "Cross-platform life management application featuring secure API authentication for financial and schedule tracking.",
-    image: "https://images.unsplash.com/photo-1669023414162-8b0573b9c6b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
+    image: theBridgeLogo,
     tech: ["Python", "Flet", "Plaid API", "Google API"],
     metrics: { platforms: "Cross-Platform", ui: "Condensed" }
   },
