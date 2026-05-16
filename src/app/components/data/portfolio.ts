@@ -1,8 +1,10 @@
 // src/data/portfolio.ts
+import profilePic from "../assets/Evan_pic.png";
+
 
 export const profileData = {
   name: "Evan Allen",
-  image: "..assets/Evan_pic.png",
+  image: "profilePic",
   roles: ["Game Developer", "Software Engineer", "System Architect", "Tech Innovator"],
   experience: "5+ Years Experience",
   availability: "Available for hire",
