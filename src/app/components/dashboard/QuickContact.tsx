@@ -1,64 +1,71 @@
+import { useState } from "react";
 import { motion } from "motion/react";
-import { Mail, MessageSquare, Calendar, Send } from "lucide-react";
+import { Mail, MessageSquare, Check, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Button } from "../ui/button";
-import { Separator } from "../ui/separator";
-import { profileData } from "../data/portfolio"; // <-- Data Import
+import { profileData } from "../data/portfolio"; 
 
 export function QuickContact() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    const rawEmail = profileData.socials.email.replace('mailto:', '');
+    navigator.clipboard.writeText(rawEmail);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}>
-      <Card className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground relative overflow-hidden border-none">
+      <Card className="relative overflow-hidden border-border h-full flex flex-col justify-between">
         
-        {/* Animated Glow */}
+        {/* Subtle Dark Mode Animated Glow */}
         <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.03, 0.08, 0.03] }}
           transition={{ duration: 4, repeat: Infinity }}
-          className="absolute -top-10 -right-10 w-40 h-40 bg-white rounded-full blur-3xl pointer-events-none"
+          className="absolute -top-10 -right-10 w-40 h-40 bg-primary rounded-full blur-3xl pointer-events-none"
         />
 
-        <CardHeader>
-          <CardTitle className="text-primary-foreground">Let's Connect</CardTitle>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-lg">Let's Connect</CardTitle>
         </CardHeader>
         
-        <CardContent className="relative z-10 flex flex-col gap-4">
-          <div className="space-y-3">
-            <a href={profileData.socials.email} className="flex items-center gap-3 p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors backdrop-blur-sm">
-              <Mail className="w-5 h-5" />
+        <CardContent className="relative z-10 flex flex-col gap-4 flex-1 justify-center">
+          <div className="space-y-4">
+            
+            {/* Email Bar */}
+            <button 
+              onClick={handleCopyEmail}
+              className="w-full flex items-center text-left gap-3 p-3 bg-muted/50 rounded-lg hover:bg-muted transition-all border border-border/50 cursor-pointer group"
+            >
+              {copied ? (
+                <Check className="w-5 h-5 text-green-500" />
+              ) : (
+                <Mail className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+              )}
               <div className="flex-1 min-w-0">
-                <p className="text-sm opacity-80">Email</p>
-                <p className="text-sm font-medium truncate">
-                  {profileData.socials.email.replace('mailto:', '')}
+                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-0.5">Email</p>
+                <p className={`text-sm font-medium truncate transition-colors ${copied ? 'text-green-500' : 'text-foreground'}`}>
+                  {copied ? "Copied to clipboard!" : profileData.socials.email.replace('mailto:', '')}
                 </p>
               </div>
+            </button>
+
+            {/* Discord Bar - Now dynamically pulling the link from portfolio.ts */}
+            <a 
+              href={profileData.socials.discordLink} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg hover:bg-muted transition-all border border-border/50 cursor-pointer group"
+            >
+              <MessageSquare className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+              <div className="flex-1">
+                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-0.5">Discord</p>
+                <p className="text-sm font-medium truncate text-foreground">{profileData.socials.discord}</p>
+              </div>
+              <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
 
-            <a href="#" className="flex items-center gap-3 p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors backdrop-blur-sm">
-              <MessageSquare className="w-5 h-5" />
-              <div className="flex-1">
-                <p className="text-sm opacity-80">Discord</p>
-                <p className="text-sm font-medium truncate">{profileData.socials.discord}</p>
-              </div>
-            </a>
-
-            <a href="#" className="flex items-center gap-3 p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors backdrop-blur-sm">
-              <Calendar className="w-5 h-5" />
-              <div className="flex-1">
-                <p className="text-sm opacity-80">Schedule</p>
-                <p className="text-sm font-medium">Book a call</p>
-              </div>
-            </a>
           </div>
-
-          <Button variant="secondary" className="w-full gap-2 mt-2 font-semibold">
-            <Send className="w-4 h-4" /> Quick Message
-          </Button>
-
-          <Separator className="bg-white/20 my-2" />
-          
-          <p className="text-xs opacity-80 text-center m-0">
-            Response time: <span className="font-bold">&lt;24 hours</span>
-          </p>
         </CardContent>
       </Card>
     </motion.div>

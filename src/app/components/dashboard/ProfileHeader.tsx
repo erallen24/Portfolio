@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import { profileData } from "../data/portfolio";
+import { profileData } from "../data/portfolio"; 
 
 export function ProfileHeader() {
   const [currentRole, setCurrentRole] = useState(0);
@@ -34,7 +34,6 @@ export function ProfileHeader() {
 
         <CardContent className="p-6 md:p-8 relative flex flex-col md:flex-row items-center md:items-start gap-6 w-full">
           
-          {/* Avatar Area - NOW WIRED TO PORTFOLIO.TS */}
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -55,7 +54,6 @@ export function ProfileHeader() {
             />
           </motion.div>
 
-          {/* Info */}
           <div className="flex-1 text-center md:text-left min-w-0 md:pr-4">
             <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="mb-2 truncate text-3xl font-bold">
               {profileData.name}
@@ -76,8 +74,9 @@ export function ProfileHeader() {
             </div>
 
             <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-4">
-              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 py-1 px-3">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse mr-2" />
+              {/* UPDATED: Green "Available for hire" badge */}
+              <Badge variant="outline" className="bg-green-500/10 text-green-500 border-green-500/20 py-1 px-3">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse mr-2" />
                 {profileData.availability}
               </Badge>
               <Badge variant="secondary" className="py-1 px-3">
@@ -98,23 +97,23 @@ export function ProfileHeader() {
             </div>
           </div>
 
-          {/* About Me */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
             className="flex-1 md:max-w-md hidden lg:block text-sm text-muted-foreground leading-relaxed md:px-4 md:border-l border-border/50 space-y-2"
           >
-            {profileData.about.map((paragraph, idx) => (
+            {profileData.about.map((paragraph: string, idx: number) => (
                 <p key={idx}>{paragraph}</p>
             ))}
           </motion.div>
 
-          {/* CTA */}
           <div className="shrink-0 flex items-center">
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-              <Button size="lg" className="rounded-xl gap-2 font-semibold">
-                <Download className="w-4 h-4" /> Resume
+              <Button size="lg" className="rounded-xl gap-2 font-semibold cursor-pointer" asChild>
+                <a href={profileData.resume} target="_blank" rel="noopener noreferrer">
+                  <Download className="w-4 h-4" /> Resume
+                </a>
               </Button>
             </motion.div>
           </div>
