@@ -1,7 +1,17 @@
 import profilePic from "@/assets/Evan_pic.png";
-import addVentureLogo from "@/assets/Add-VentureLogo.png";
 import projectCADELogo from "@/assets/ProjectCADELogo.png";
 import theBridgeLogo from "@/assets/TheBridge_Logo.png";
+
+// Pictures are inside the AddVenture folder
+import addVentureLogo from "@/assets/AddVenture/Add-VentureLogo.png";
+import addVenture1 from "@/assets/AddVenture/AddVentureScreenshot1.png"; 
+import addVenture2 from "@/assets/AddVenture/AddVentureScreenshot2.png"; 
+import addVenture3 from "@/assets/AddVenture/AddVentureScreenshot3.png";
+import addVenture4 from "@/assets/AddVenture/AddVentureScreenshot4.png";
+import addVenture5 from "@/assets/AddVenture/AddVentureScreenshot5.png";
+
+// Video is in the main assets folder
+import addVentureGameplay from "@/assets/AddVentureVideo1.mp4"; 
 
 export const profileData = {
   name: "Evan Allen",
@@ -31,7 +41,6 @@ export const techStackData = [
   { name: "Architecture", techs: ["Systems Programming", "Custom Physics"], color: "from-pink-500/20 to-pink-500/5" },
 ];
 
-// NEW: Array for the expandable section
 export const additionalSkills = [
   "Supabase",
   "Vulkan API",
@@ -56,10 +65,15 @@ export const projectsData = [
       role: "Solo Developer",
       techStack: ["C++", "Custom Engine", "Vulkan API"],
       repoUrl: "https://github.com/erallen24/add-venture",
+      downloadUrl: "@/assets/Add-Venture_Installer.zip",
       media: [
-        { type: "image", url: addVentureLogo, alt: "Add-Venture Title Screen" },
-        { type: "video", url: "https://www.w3schools.com/html/mov_bbb.mp4", alt: "Gameplay Demo Trailer" },
-        { type: "image", url: "https://placehold.co/800x450/1a1a1a/4ade80?text=Architecture+Diagram", alt: "Custom Collision Logic Diagram" }
+        { type: "image", url: addVentureLogo, alt: "Add-Venture Text Logo" },
+        { type: "video", url: addVentureGameplay, alt: "Gameplay Demo" },
+        { type: "image", url: addVenture1, alt: "In-Game Screenshot" },
+        { type: "image", url: addVenture2, alt: "In-Game Screenshot" },
+        { type: "image", url: addVenture3, alt: "In-Game Screenshot" },
+        { type: "image", url: addVenture4, alt: "In-Game Screenshot" },
+        { type: "image", url: addVenture5, alt: "In-Game Screenshot" }
       ],
       achievements: [
         "Engineered a custom 2.5D collision pipeline entirely in C++",

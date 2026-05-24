@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
-import { ChevronLeft, Code2, Layout, AlertTriangle, Github, Star, Play, LayoutGrid } from "lucide-react";
+import { ChevronLeft, ChevronRight, Code2, Layout, AlertTriangle, Github, Star, Play, LayoutGrid, Download } from "lucide-react"; // <-- Added Download
 import { projectsData } from "../components/data/portfolio";
 
 type MediaItem = { type: string; url: string; alt: string };
@@ -11,6 +11,7 @@ export function ProjectDetail() {
   const navigate = useNavigate();
   
   const [activeMediaIndex, setActiveMediaIndex] = useState(0);
+  const thumbnailScrollRef = useRef<HTMLDivElement>(null);
 
   const project = projectsData.find((p: { slug: string }) => p.slug === slug);
 
@@ -28,6 +29,24 @@ export function ProjectDetail() {
 
   const { extendedDetails } = project;
   const activeMedia = extendedDetails.media[activeMediaIndex];
+
+  const handleNext = () => {
+    setActiveMediaIndex((prev) => (prev + 1) % extendedDetails.media.length);
+  };
+
+  const handlePrev = () => {
+    setActiveMediaIndex((prev) => (prev - 1 + extendedDetails.media.length) % extendedDetails.media.length);
+  };
+
+  const scrollThumbnails = (direction: 'left' | 'right') => {
+    if (thumbnailScrollRef.current) {
+      const scrollAmount = 200; 
+      thumbnailScrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <motion.div 
@@ -52,7 +71,6 @@ export function ProjectDetail() {
           <span className="hidden sm:flex items-center gap-1 text-xs font-semibold bg-primary/10 text-primary px-3 py-1 rounded-full uppercase tracking-wider">
             {project.type}
           </span>
-          {/* NEW: See More Button */}
           <button 
             onClick={() => navigate('/projects')} 
             className="flex items-center gap-2 text-sm font-medium bg-muted hover:bg-primary hover:text-primary-foreground px-4 py-1.5 rounded-md transition-all cursor-pointer border border-transparent hover:border-primary/50 shadow-sm"
@@ -72,8 +90,7 @@ export function ProjectDetail() {
              <span className="text-sm font-semibold">Project Gallery</span>
           </div>
           
-          {/* Main Active Viewer */}
-          <div className="flex-1 bg-muted/20 border border-border rounded-lg overflow-hidden flex items-center justify-center min-h-[350px] md:min-h-[450px] relative">
+          <div className="flex-1 bg-muted/20 border border-border rounded-lg overflow-hidden flex items-center justify-center min-h-[350px] md:min-h-[450px] relative group">
              {activeMedia.type === 'video' ? (
                <video
                  key={activeMedia.url} 
@@ -90,31 +107,66 @@ export function ProjectDetail() {
                  className="w-full h-full object-contain bg-black/5"
                />
              )}
+
+             {extendedDetails.media.length > 1 && (
+               <>
+                 <button
+                   onClick={handlePrev}
+                   className="absolute left-3 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background text-foreground p-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 border border-border shadow-md z-20 cursor-pointer backdrop-blur-sm"
+                 >
+                   <ChevronLeft className="w-5 h-5" />
+                 </button>
+                 <button
+                   onClick={handleNext}
+                   className="absolute right-3 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background text-foreground p-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 border border-border shadow-md z-20 cursor-pointer backdrop-blur-sm"
+                 >
+                   <ChevronRight className="w-5 h-5" />
+                 </button>
+               </>
+             )}
           </div>
 
-          {/* App-Store Style Thumbnail Scroll */}
-          <div className="flex gap-3 overflow-x-auto pb-2 pt-1 snap-x scrollbar-thin">
-            {extendedDetails.media.map((item: MediaItem, idx: number) => (
-              <button
-                key={idx}
-                onClick={() => setActiveMediaIndex(idx)}
-                className={`relative shrink-0 w-32 h-20 md:w-40 md:h-24 rounded-md overflow-hidden border-2 transition-all cursor-pointer snap-start ${
-                  activeMediaIndex === idx 
-                    ? 'border-primary opacity-100 ring-2 ring-primary/20 ring-offset-1 ring-offset-background' 
-                    : 'border-transparent opacity-50 hover:opacity-100'
-                }`}
-              >
-                {item.type === 'video' ? (
-                  <div className="w-full h-full bg-muted flex items-center justify-center">
-                    <div className="absolute inset-0 bg-black/20 z-10" />
-                    <Play className="w-6 h-6 text-white drop-shadow-md z-20 absolute" />
-                    <video src={item.url} className="w-full h-full object-cover" />
-                  </div>
-                ) : (
-                  <img src={item.url} alt={item.alt} className="w-full h-full object-cover" />
-                )}
-              </button>
-            ))}
+          <div className="relative group/thumbs">
+            <button 
+              onClick={() => scrollThumbnails('left')}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -ml-2 z-20 bg-background/90 text-foreground p-1 rounded-full border border-border shadow-md opacity-0 group-hover/thumbs:opacity-100 transition-opacity duration-200 cursor-pointer hover:bg-accent backdrop-blur-md"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            <div 
+              ref={thumbnailScrollRef}
+              className="flex gap-3 overflow-x-auto pb-2 pt-1 snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth"
+            >
+              {extendedDetails.media.map((item: MediaItem, idx: number) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveMediaIndex(idx)}
+                  className={`relative shrink-0 w-28 h-16 md:w-36 md:h-20 rounded-md overflow-hidden border-2 transition-all cursor-pointer snap-start ${
+                    activeMediaIndex === idx 
+                      ? 'border-primary opacity-100 ring-2 ring-primary/20 ring-offset-1 ring-offset-background' 
+                      : 'border-transparent opacity-50 hover:opacity-100'
+                  }`}
+                >
+                  {item.type === 'video' ? (
+                    <div className="w-full h-full bg-muted flex items-center justify-center">
+                      <div className="absolute inset-0 bg-black/20 z-10" />
+                      <Play className="w-6 h-6 text-white drop-shadow-md z-20 absolute scale-75" />
+                      <video src={item.url} className="w-full h-full object-cover" />
+                    </div>
+                  ) : (
+                    <img src={item.url} alt={item.alt} className="w-full h-full object-cover" />
+                  )}
+                </button>
+              ))}
+            </div>
+
+            <button 
+              onClick={() => scrollThumbnails('right')}
+              className="absolute right-0 top-1/2 -translate-y-1/2 -mr-2 z-20 bg-background/90 text-foreground p-1 rounded-full border border-border shadow-md opacity-0 group-hover/thumbs:opacity-100 transition-opacity duration-200 cursor-pointer hover:bg-accent backdrop-blur-md"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
 
@@ -145,7 +197,7 @@ export function ProjectDetail() {
                 </div>
               </div>
 
-              <div className="flex justify-between items-center pt-1">
+              <div className="flex justify-between items-center pt-1 pb-1">
                 <span className="text-muted-foreground">Repository</span>
                 <a 
                   href={extendedDetails.repoUrl} 
@@ -156,6 +208,20 @@ export function ProjectDetail() {
                   <Github className="w-4 h-4" /> View Source
                 </a>
               </div>
+
+              {/* NEW: Download Build Section - only renders if downloadUrl exists */}
+              {extendedDetails.downloadUrl && (
+                <div className="flex justify-between items-center pt-2 mt-2 border-t border-border/50">
+                  <span className="text-muted-foreground">Playable Build</span>
+                  <a 
+                    href={extendedDetails.downloadUrl} 
+                    download
+                    className="flex items-center gap-2 bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground px-3 py-1.5 rounded-md text-sm font-medium transition-colors cursor-pointer"
+                  >
+                    <Download className="w-4 h-4" /> Download
+                  </a>
+                </div>
+              )}
             </div>
           </div>
 
