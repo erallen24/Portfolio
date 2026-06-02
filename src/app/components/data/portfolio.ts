@@ -34,6 +34,7 @@ import ProjectCADEdemo from "@/assets/ProjectCADE/ProjectCADEdemo1.mp4";
 
 
 
+
 export const profileData = {
   name: "Evan Allen",
   image: profilePic,
