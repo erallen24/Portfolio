@@ -11,12 +11,12 @@ import addVenture5 from "@/assets/AddVenture/AddVentureScreenshot5.png";
 import addVentureGameplay from "@/assets/AddVenture/AddVentureVideo1.mp4"; 
 
 // Pictures and Videos for Conways Game of Life
-import GameOfLifeLogo from "@/assets/GameOfLifeLogo.png";
-import GameOfLife1 from "@/assets/GameofLife/GameOfLifeScreenshot1.png";
-import GameOfLife2 from "@/assets/GameofLife/GameOfLifeScreenshot2.png";
-import GameOfLife3 from "@/assets/GameofLife/GameOfLifeScreenshot3.png";
-import GameOfLife4 from "@/assets/GameofLife/GameOfLifeScreenshot4.png";
-import GameOfLife5 from "@/assets/GameofLife/GameOfLifeScreenshot5.png";
+import GameOfLifeLogo from "@/assets/GameOfLife/GameOfLifeLogo.png";
+import GameOfLife1 from "@/assets/GameOfLife/GameOfLifeScreenshot1.png";
+import GameOfLife2 from "@/assets/GameOfLife/GameOfLifeScreenshot2.png";
+import GameOfLife3 from "@/assets/GameOfLife/GameOfLifeScreenshot3.png";
+import GameOfLife4 from "@/assets/GameOfLife/GameOfLifeScreenshot4.png";
+import GameOfLife5 from "@/assets/GameOfLife/GameOfLifeScreenshot5.png";
 import GameOfLifeVideo from "@/assets/GameofLife/GameOfLifeDemo.mp4";
 
 import ChatServerLogo from "@/assets/ChatServer/ChatServerLogo.png";
