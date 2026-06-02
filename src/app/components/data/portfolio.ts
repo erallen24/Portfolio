@@ -1,17 +1,38 @@
 import profilePic from "@/assets/Evan_pic.png";
-import projectCADELogo from "@/assets/ProjectCADELogo.png";
 import theBridgeLogo from "@/assets/TheBridge_Logo.png";
 
-// Pictures are inside the AddVenture folder
+// Pictures and Videos for AddVenture
 import addVentureLogo from "@/assets/AddVenture/Add-VentureLogo.png";
 import addVenture1 from "@/assets/AddVenture/AddVentureScreenshot1.png"; 
 import addVenture2 from "@/assets/AddVenture/AddVentureScreenshot2.png"; 
 import addVenture3 from "@/assets/AddVenture/AddVentureScreenshot3.png";
 import addVenture4 from "@/assets/AddVenture/AddVentureScreenshot4.png";
 import addVenture5 from "@/assets/AddVenture/AddVentureScreenshot5.png";
+import addVentureGameplay from "@/assets/AddVenture/AddVentureVideo1.mp4"; 
 
-// Video is in the main assets folder
-import addVentureGameplay from "@/assets/AddVentureVideo1.mp4"; 
+// Pictures and Videos for Conways Game of Life
+import GameOfLifeLogo from "@/assets/GameofLife/GameOfLifeLogo.png";
+import GameOfLife1 from "@/assets/GameofLife/GameOfLifeScreenshot1.png";
+import GameOfLife2 from "@/assets/GameofLife/GameOfLifeScreenshot2.png";
+import GameOfLife3 from "@/assets/GameofLife/GameOfLifeScreenshot3.png";
+import GameOfLife4 from "@/assets/GameofLife/GameOfLifeScreenshot4.png";
+import GameOfLife5 from "@/assets/GameofLife/GameOfLifeScreenshot5.png";
+import GameOfLifeVideo from "@/assets/GameofLife/GameOfLifeDemo.mp4";
+
+import ChatServerLogo from "@/assets/ChatServer/ChatServerLogo.png";
+import ChatServer1 from "@/assets/ChatServer/ChatServer1.png";
+import ChatServer2 from "@/assets/ChatServer/ChatServer2.png";
+import ChatServer3 from "@/assets/ChatServer/ChatServer3.png";
+import ChatServerDemo from "@/assets/ChatServer/ChatServerDemo.mp4";
+
+import ProjectCADELogo from "@/assets/ProjectCADE/ProjectCADELogo.png";
+import ProjectCADE1 from "@/assets/ProjectCADE/ProjectCADE1.png";
+import ProjectCADE2 from "@/assets/ProjectCADE/ProjectCADE2.png";
+import ProjectCADE3 from "@/assets/ProjectCADE/ProjectCADE3.png";
+import ProjectCADE4 from "@/assets/ProjectCADE/ProjectCADE4.png";
+import ProjectCADEdemo from "@/assets/ProjectCADE/ProjectCADEdemo1.mp4";
+
+
 
 export const profileData = {
   name: "Evan Allen",
@@ -19,7 +40,7 @@ export const profileData = {
   roles: ["Game Developer", "Software Engineer", "System Architect", "Tech Innovator"],
   experience: "5+ Years Experience",
   availability: "Available for hire",
-  resume: "/Evan_Allen_Resume.pdf", 
+  resume: "../DownloadLinks/EvanAllen_Resume.pdf", 
   socials: {
     github: "https://github.com/erallen24",
     linkedin: "https://www.linkedin.com/in/evan-allen-game-dev/",
@@ -65,7 +86,7 @@ export const projectsData = [
       role: "Solo Developer",
       techStack: ["C++", "Custom Engine", "Vulkan API"],
       repoUrl: "https://github.com/erallen24/add-venture",
-      downloadUrl: "@/assets/Add-Venture_Installer.zip",
+      downloadUrl: "../../DownloadLinks/Add-Venture_Installer.exe",
       media: [
         { type: "image", url: addVentureLogo, alt: "Add-Venture Text Logo" },
         { type: "video", url: addVentureGameplay, alt: "Gameplay Demo" },
@@ -87,17 +108,20 @@ export const projectsData = [
     slug: "project-cade",
     type: "Game Development",
     description: "Single Player FPS game balancing stealth and combat gameplay.",
-    image: projectCADELogo,
+    image: ProjectCADELogo,
     tech: ["Unity", "C#", "Custom Character Controller"],
     metrics: { status: "Beta", genre: "Stealth/Action" },
     extendedDetails: {
       role: "Gameplay Programmer",
       techStack: ["Unity", "C#"],
-      repoUrl: "https://github.com/erallen24/project-cade",
+      repoUrl: "https://github.com/dannyjace/PROJECT-C.A.D.E.",
+      downloadUrl: "../../DownloadLinks/Project C.A.D.E. Installer.exe",
       media: [
-        { type: "image", url: projectCADELogo, alt: "Project C.A.D.E. Key Art" },
-        { type: "image", url: "https://placehold.co/800x450/1a1a1a/fbbf24?text=Stealth+Mechanics", alt: "Stealth Mechanics View" },
-        { type: "image", url: "https://placehold.co/800x450/1a1a1a/fbbf24?text=Combat+Mechanics", alt: "Combat Mechanics View" }
+        { type: "video", url: ProjectCADEdemo, alt: "Project C.A.D.E. Gameplay Demo" },
+        { type: "image", url: ProjectCADE1, alt: "Gameplay Screenshot 1" },
+        { type: "image", url: ProjectCADE2, alt: "Gameplay Screenshot 2" },
+        { type: "image", url: ProjectCADE3, alt: "Gameplay Screenshot 3" },
+        { type: "image", url: ProjectCADE4, alt: "Gameplay Screenshot 4" },
       ],
       achievements: [
         "Built a robust state-machine for seamless stealth-to-combat transitions",
@@ -107,6 +131,60 @@ export const projectsData = [
     }
   },
   {
+    title: "Conways: Game of Life",
+    slug: "conways-game-of-life",
+    type: "Simulation",
+    description: "Conways game of life ",
+    image: GameOfLifeLogo,
+    tech: ["C++", "wxWidgets"],
+    metrics: { status: "Complete", genre: "Simulation" },
+    extendedDetails: {
+      role: "",
+      techStack: ["C++", "wxWidgets"],
+      repoUrl: "https://github.com/erallen24/conways-game-of-life",
+      downloadUrl: "../../DownloadLinks/GameOfLife.exe",
+      media: [
+        { type: "image", url: GameOfLife1, alt: "Conways Game of Life Screenshot 1" },
+        { type: "image", url: GameOfLife2, alt: "Conways Game of Life Screenshot 2" },
+        { type: "image", url: GameOfLife3, alt: "Conways Game of Life Screenshot 3" },
+        { type: "image", url: GameOfLife4, alt: "Conways Game of Life Screenshot 4" },
+        { type: "image", url: GameOfLife5, alt: "Conways Game of Life Screenshot 5" },
+        { type: "video", url: GameOfLifeVideo, alt: "Conways Game of Life Gameplay Demo" }
+      ],
+      achievements: [
+        "Implemented a high-performance cellular automaton simulation in C++",
+        "Designed an intuitive GUI using wxWidgets for real-time interaction",
+        "Optimized the simulation for large grids with efficient memory management"
+      ]
+    }
+  },
+  {
+    title: "Chat Server",
+    slug: "chat-server",
+    type: "Software Engineering",
+    description: "A simple chat server implemented in C++ using socket programming, allowing multiple clients to connect and communicate in real-time.",
+    image: ChatServerLogo,
+    tech: ["C++", "WinSock API"],
+    metrics: { status: "Complete", genre: "Simulation" },
+    extendedDetails: {
+      role: "",
+      techStack: ["C++", "WinSock API"],
+      repoUrl: "https://github.com/erallen24/chat-server",
+       downloadUrl: "../../DownloadLinks/SRC and SLN.zip",
+      media: [
+        { type: "video", url: ChatServerDemo, alt: "Chat Server Demo" },
+        { type: "image", url: ChatServer1, alt: "Chat Server Screenshot 1" },
+        { type: "image", url: ChatServer2, alt: "Chat Server Screenshot 2" },
+        { type: "image", url: ChatServer3, alt: "Chat Server Screenshot 3" }
+      ],
+      achievements: [
+        "Implemented a multi-threaded chat server using C++ and WinSock API",
+        "Designed a simple client application for real-time communication",
+        "Handled concurrent client connections with efficient thread management and synchronization"
+      ]
+    }
+  },
+   {
     title: "The Bridge",
     slug: "the-bridge",
     type: "Software Engineering",
