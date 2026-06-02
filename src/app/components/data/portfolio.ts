@@ -41,7 +41,7 @@ export const profileData = {
   roles: ["Game Developer", "Software Engineer", "System Architect", "Tech Innovator"],
   experience: "5+ Years Experience",
   availability: "Available for hire",
-  resume: "EvanAllen_Resume.pdf", 
+  resume: "/public/EvanAllen_Resume.pdf", 
   socials: {
     github: "https://github.com/erallen24",
     linkedin: "https://www.linkedin.com/in/evan-allen-game-dev/",
