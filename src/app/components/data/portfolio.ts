@@ -32,6 +32,8 @@ import ProjectCADE3 from "@/assets/ProjectCADE/ProjectCADE3.png";
 import ProjectCADE4 from "@/assets/ProjectCADE/ProjectCADE4.png";
 import ProjectCADEdemo from "@/assets/ProjectCADE/ProjectCADEdemo1.mp4";
 
+import resumePDF from "@/assets/EvanAllen_Resume.pdf";
+
 
 
 
@@ -41,7 +43,7 @@ export const profileData = {
   roles: ["Game Developer", "Software Engineer", "System Architect", "Tech Innovator"],
   experience: "5+ Years Experience",
   availability: "Available for hire",
-  resume: "/EvanAllen_Resume.pdf", 
+  resume: resumePDF,
   socials: {
     github: "https://github.com/erallen24",
     linkedin: "https://www.linkedin.com/in/evan-allen-game-dev/",
