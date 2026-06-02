@@ -17,7 +17,7 @@ import GameOfLife2 from "@/assets/GameOfLife/GameOfLifeScreenshot2.png";
 import GameOfLife3 from "@/assets/GameOfLife/GameOfLifeScreenshot3.png";
 import GameOfLife4 from "@/assets/GameOfLife/GameOfLifeScreenshot4.png";
 import GameOfLife5 from "@/assets/GameOfLife/GameOfLifeScreenshot5.png";
-import GameOfLifeVideo from "@/assets/GameofLife/GameOfLifeDemo.mp4";
+import GameOfLifeVideo from "@/assets/GameOfLife/GameOfLifeDemo.mp4";
 
 import ChatServerLogo from "@/assets/ChatServer/ChatServerLogo.png";
 import ChatServer1 from "@/assets/ChatServer/ChatServer1.png";
