@@ -88,11 +88,10 @@ export const projectsData = [
     extendedDetails: {
       role: "Solo Developer",
       techStack: ["C++", "Custom Engine", "Vulkan API"],
-      repoUrl: "https://github.com/erallen24/add-venture",
       downloadUrl: "../../DownloadLinks/Add-Venture_Installer.exe",
       media: [
         { type: "image", url: addVentureLogo, alt: "Add-Venture Text Logo" },
-        { type: "video", url: addVentureGameplay, alt: "Gameplay Demo" },
+        { type: "video", url:"https://drive.google.com/uc?export=download&id=1lmQOQNv6siecmwABGqXlMcYeQYv1Fa_i](https://drive.google.com/uc?export=download&id=1lmQOQNv6siecmwABGqXlMcYeQYv1Fa_i)" },
         { type: "image", url: addVenture1, alt: "In-Game Screenshot" },
         { type: "image", url: addVenture2, alt: "In-Game Screenshot" },
         { type: "image", url: addVenture3, alt: "In-Game Screenshot" },
@@ -144,7 +143,6 @@ export const projectsData = [
     extendedDetails: {
       role: "",
       techStack: ["C++", "wxWidgets"],
-      repoUrl: "https://github.com/erallen24/conways-game-of-life",
       downloadUrl: "../../DownloadLinks/GameOfLife.exe",
       media: [
         { type: "image", url: GameOfLife1, alt: "Conways Game of Life Screenshot 1" },
@@ -172,7 +170,6 @@ export const projectsData = [
     extendedDetails: {
       role: "",
       techStack: ["C++", "WinSock API"],
-      repoUrl: "https://github.com/erallen24/chat-server",
        downloadUrl: "../../DownloadLinks/SRC and SLN.zip",
       media: [
         { type: "video", url: ChatServerDemo, alt: "Chat Server Demo" },
@@ -198,7 +195,6 @@ export const projectsData = [
     extendedDetails: {
       role: "Full Stack Developer",
       techStack: ["Python", "Flet", "Supabase"],
-      repoUrl: "https://github.com/erallen24/the-bridge",
       media: [
         { type: "image", url: theBridgeLogo, alt: "The Bridge App Icon" },
         { type: "image", url: "https://placehold.co/800x450/1a1a1a/60a5fa?text=Plaid+API+Dashboard", alt: "Financial Dashboard View" },
