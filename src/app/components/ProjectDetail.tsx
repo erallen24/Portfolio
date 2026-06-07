@@ -1,10 +1,11 @@
 import { useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
-import { ChevronLeft, ChevronRight, Code2, Layout, AlertTriangle, Github, Star, Play, LayoutGrid, Download } from "lucide-react"; // <-- Added Download
+import { ChevronLeft, ChevronRight, Code2, Layout, AlertTriangle, Github, Star, Play, LayoutGrid, Download } from "lucide-react"; 
 import { projectsData } from "../components/data/portfolio";
 
-type MediaItem = { type: string; url: string; alt: string };
+// NEW: Added the '?' to make alt optional
+type MediaItem = { type: string; url: string; alt?: string };
 
 export function ProjectDetail() {
   const { slug } = useParams();
@@ -92,18 +93,16 @@ export function ProjectDetail() {
           
           <div className="flex-1 bg-muted/20 border border-border rounded-lg overflow-hidden flex items-center justify-center min-h-[350px] md:min-h-[450px] relative group">
              {activeMedia.type === 'video' ? (
-               <video
+               <iframe
                  key={activeMedia.url} 
                  src={activeMedia.url}
-                 controls
-                 autoPlay
-                 muted
-                 className="w-full h-full object-contain bg-black"
+                 className="w-full h-full min-h-[350px] md:min-h-[450px] bg-black border-0"
+                 allow="autoplay; fullscreen"
                />
              ) : (
                <img
                  src={activeMedia.url}
-                 alt={activeMedia.alt}
+                 alt={activeMedia.alt || "Project media"} // NEW: Added fallback string
                  className="w-full h-full object-contain bg-black/5"
                />
              )}
@@ -152,10 +151,11 @@ export function ProjectDetail() {
                     <div className="w-full h-full bg-muted flex items-center justify-center">
                       <div className="absolute inset-0 bg-black/20 z-10" />
                       <Play className="w-6 h-6 text-white drop-shadow-md z-20 absolute scale-75" />
-                      <video src={item.url} className="w-full h-full object-cover" />
+                      {/* Using iframe for thumbnail fallback on drive videos */}
+                      <iframe src={item.url} className="w-full h-full object-cover pointer-events-none" />
                     </div>
                   ) : (
-                    <img src={item.url} alt={item.alt} className="w-full h-full object-cover" />
+                    <img src={item.url} alt={item.alt || "Project thumbnail"} className="w-full h-full object-cover" /> // NEW: Added fallback string
                   )}
                 </button>
               ))}
@@ -209,13 +209,14 @@ export function ProjectDetail() {
                 </a>
               </div>
 
-              {/* NEW: Download Build Section - only renders if downloadUrl exists */}
+              {/* Download Build Section */}
               {extendedDetails.downloadUrl && (
                 <div className="flex justify-between items-center pt-2 mt-2 border-t border-border/50">
                   <span className="text-muted-foreground">Playable Build</span>
                   <a 
                     href={extendedDetails.downloadUrl} 
-                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground px-3 py-1.5 rounded-md text-sm font-medium transition-colors cursor-pointer"
                   >
                     <Download className="w-4 h-4" /> Download
