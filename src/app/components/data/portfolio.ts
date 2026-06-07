@@ -91,7 +91,7 @@ export const projectsData = [
       downloadUrl: "../../DownloadLinks/Add-Venture_Installer.exe",
       media: [
         { type: "image", url: addVentureLogo, alt: "Add-Venture Text Logo" },
-        { type: "video", url:"[https://drive.google.com/file/d/1lmQOQNv6siecmwABGqXlMcYeQYv1Fa_i/preview](https://drive.google.com/file/d/1lmQOQNv6siecmwABGqXlMcYeQYv1Fa_i/preview)" },
+        { type: "video", url:"https://drive.google.com/file/d/1lmQOQNv6siecmwABGqXlMcYeQYv1Fa_i/view?usp=sharing" },
         { type: "image", url: addVenture1, alt: "In-Game Screenshot" },
         { type: "image", url: addVenture2, alt: "In-Game Screenshot" },
         { type: "image", url: addVenture3, alt: "In-Game Screenshot" },
