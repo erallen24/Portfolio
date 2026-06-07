@@ -119,7 +119,7 @@ export const projectsData = [
       repoUrl: "https://github.com/dannyjace/PROJECT-C.A.D.E.",
       downloadUrl: "../../DownloadLinks/Project C.A.D.E. Installer.exe",
       media: [
-        { type: "video", url: ProjectCADEdemo, alt: "Project C.A.D.E. Gameplay Demo" },
+        { type: "video", url: "https://www.youtube.com/embed/blobniemj4w", alt: "Project C.A.D.E. Gameplay Demo" },
         { type: "image", url: ProjectCADE1, alt: "Gameplay Screenshot 1" },
         { type: "image", url: ProjectCADE2, alt: "Gameplay Screenshot 2" },
         { type: "image", url: ProjectCADE3, alt: "Gameplay Screenshot 3" },
