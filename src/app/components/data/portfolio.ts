@@ -91,7 +91,7 @@ export const projectsData = [
       downloadUrl: "../../DownloadLinks/Add-Venture_Installer.exe",
       media: [
         { type: "image", url: addVentureLogo, alt: "Add-Venture Text Logo" },
-        { type: "video", url:"https://drive.google.com/file/d/1lmQOQNv6siecmwABGqXlMcYeQYv1Fa_i/view?usp=sharing" },
+        { type: "video", url:"https://www.youtube.com/embed/iYOfyVMvCaQ?autoplay=1&mute=1" },
         { type: "image", url: addVenture1, alt: "In-Game Screenshot" },
         { type: "image", url: addVenture2, alt: "In-Game Screenshot" },
         { type: "image", url: addVenture3, alt: "In-Game Screenshot" },
@@ -119,7 +119,7 @@ export const projectsData = [
       repoUrl: "https://github.com/dannyjace/PROJECT-C.A.D.E.",
       downloadUrl: "../../DownloadLinks/Project C.A.D.E. Installer.exe",
       media: [
-        { type: "video", url: "https://www.youtube.com/embed/blobniemj4w", alt: "Project C.A.D.E. Gameplay Demo" },
+        { type: "video", url: "https://www.youtube.com/embed/blobniemj4w?autoplay=1&mute=1", alt: "Project C.A.D.E. Gameplay Demo" },
         { type: "image", url: ProjectCADE1, alt: "Gameplay Screenshot 1" },
         { type: "image", url: ProjectCADE2, alt: "Gameplay Screenshot 2" },
         { type: "image", url: ProjectCADE3, alt: "Gameplay Screenshot 3" },
@@ -145,12 +145,13 @@ export const projectsData = [
       techStack: ["C++", "wxWidgets"],
       downloadUrl: "../../DownloadLinks/GameOfLife.exe",
       media: [
+        { type: "video", url: "https://www.youtube.com/embed/XycjV6O-uV8?autoplay=1&mute=1", alt: "Conways Game of Life Gameplay Demo" },
         { type: "image", url: GameOfLife1, alt: "Conways Game of Life Screenshot 1" },
         { type: "image", url: GameOfLife2, alt: "Conways Game of Life Screenshot 2" },
         { type: "image", url: GameOfLife3, alt: "Conways Game of Life Screenshot 3" },
         { type: "image", url: GameOfLife4, alt: "Conways Game of Life Screenshot 4" },
-        { type: "image", url: GameOfLife5, alt: "Conways Game of Life Screenshot 5" },
-        { type: "video", url: GameOfLifeVideo, alt: "Conways Game of Life Gameplay Demo" }
+        { type: "image", url: GameOfLife5, alt: "Conways Game of Life Screenshot 5" }
+        
       ],
       achievements: [
         "Implemented a high-performance cellular automaton simulation in C++",
@@ -172,7 +173,7 @@ export const projectsData = [
       techStack: ["C++", "WinSock API"],
        downloadUrl: "../../DownloadLinks/SRC and SLN.zip",
       media: [
-        { type: "video", url: ChatServerDemo, alt: "Chat Server Demo" },
+        { type: "video", url: "https://www.youtube.com/embed/8AEbx9e8RNU?autoplay=1&mute=1", alt: "Chat Server Demo" },
         { type: "image", url: ChatServer1, alt: "Chat Server Screenshot 1" },
         { type: "image", url: ChatServer2, alt: "Chat Server Screenshot 2" },
         { type: "image", url: ChatServer3, alt: "Chat Server Screenshot 3" }
