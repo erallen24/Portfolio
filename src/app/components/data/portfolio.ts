@@ -171,7 +171,7 @@ export const projectsData = [
     extendedDetails: {
       role: "",
       techStack: ["C++", "WinSock API"],
-       downloadUrl: "../../DownloadLinks/SRC and SLN.zip",
+       downloadUrl: "../SRC and SLN.zip",
       media: [
         { type: "video", url: "https://www.youtube.com/embed/8AEbx9e8RNU?autoplay=1&mute=1", alt: "Chat Server Demo" },
         { type: "image", url: ChatServer1, alt: "Chat Server Screenshot 1" },
